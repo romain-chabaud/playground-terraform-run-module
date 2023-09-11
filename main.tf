@@ -11,7 +11,7 @@ resource "random_id" "random_sa_id" {
 }
 
 resource "google_service_account" "app_service_account" {
-  account_id = "${var.app_name}-${random_id.random_sa_id.id}-sa"
+  account_id = "${var.app_name}-${lower(random_id.random_sa_id.id)}-sa"
 }
 
 resource "google_cloud_run_v2_service" "app_run_service" {
